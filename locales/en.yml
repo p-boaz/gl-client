@@ -9,6 +9,7 @@ intro:
   desc: Opinionated Vite Starter Template
   dynamic-route: Demo of dynamic route
   hi: Hi, {name}!
+  hello: Hey, {id}!,
   aka: Also known as
   whats-your-name: What's your name?
 not-found: Not found
