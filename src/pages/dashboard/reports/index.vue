@@ -1,6 +1,8 @@
 <template>
   <div class="flex justify-between px-4 mt-4 sm:px-8">
-    <h2 class="text-2xl text-gray-600">Reports</h2>
+    <h2 class="text-2xl text-gray-600">
+      Reports
+    </h2>
 
     <div class="flex items-center space-x-1 text-xs">
       <a href="#" class="font-bold text-indigo-700">Home</a>
@@ -18,7 +20,7 @@
     <IntFilter v-model="tag" :fetch="fetchItems" />
     <IntList v-if="!loading && !error" :items="items" />
     <!-- Start of loading animation -->
-    <div class="mt-40" v-if="loading">
+    <div v-if="loading" class="mt-40">
       <p class="text-6xl font-bold text-center text-gray-500 animate-pulse">
         Loading...
       </p>
@@ -27,20 +29,23 @@
 </template>
 
 <script lang="ts">
-import axios from "axios"
+import axios from 'axios'
 const api = import.meta.env.VITE_DA_API_KEY
 
 export default {
   data() {
     return {
-      tag: "Sales",
+      tag: 'Sales',
       items: [],
       loading: false,
       error: null,
     }
   },
+  mounted() {
+    this.fetchItems()
+  },
   methods: {
-      async fetchItems() {
+    async fetchItems() {
       try {
         this.error = null
         this.loading = true
@@ -56,23 +61,26 @@ export default {
           published_date: item.published_date,
           dict: item.dict,
         }))
-      } catch (err) {
+      }
+      catch (err) {
         if (err.response) {
           // client received an error response (5xx, 4xx)
           this.error = {
-            title: "Server Response",
+            title: 'Server Response',
             message: err.message,
           }
-        } else if (err.request) {
+        }
+        else if (err.request) {
           // client never received a response, or request never left
           this.error = {
-            title: "Unable to Reach Server",
+            title: 'Unable to Reach Server',
             message: err.message,
           }
-        } else {
+        }
+        else {
           // There's probably an error in your code
           this.error = {
-            title: "Application Error",
+            title: 'Application Error',
             message: err.message,
           }
         }
@@ -80,10 +88,7 @@ export default {
       this.loading = false
     },
   },
-  mounted() {
-    this.fetchItems()
-  }
-};
+}
 </script>
 
 <style lang="postcss" scoped>
