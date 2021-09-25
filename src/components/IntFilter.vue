@@ -14,8 +14,8 @@
         />
       </svg>
       <select
-        class="h-10 pl-5 pr-10 text-gray-600 bg-white border border-gray-300 rounded-lg appearance-none hover:border-gray-400 focus:outline-none"
         v-model="tag"
+        class="h-10 pl-5 pr-10 text-gray-600 bg-white border border-gray-300 rounded-lg appearance-none hover:border-gray-400 focus:outline-none"
       >
         <option
           v-for="(tag, index) in tags"
@@ -38,9 +38,9 @@
   </div>
 </template>
 
-<script>
-import { computed } from "vue"
-import tagsData from "./sections.js"
+<script lang="ts">
+import { computed } from 'vue'
+import tagsData from './sections.js'
 
 export default {
   props: {
@@ -50,7 +50,7 @@ export default {
   setup(props, { emit }) {
     const tag = computed({
       get: () => props.modelValue,
-      set: value => emit("update:modelValue", value),
+      set: value => emit('update:modelValue', value),
     })
 
     return {
@@ -64,7 +64,7 @@ export default {
   },
   methods: {
     capitalize(value) {
-      if (!value) return ""
+      if (!value) return ''
       value = value.toString()
       return value.charAt(0).toUpperCase() + value.slice(1)
     },

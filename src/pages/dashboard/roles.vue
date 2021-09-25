@@ -4,7 +4,9 @@
     <nav class="mb-6 text-sm font-semibold" aria-label="Breadcrumb">
       <ol class="inline-flex p-0 list-none">
         <li class="flex items-center text-blue-500">
-          <router-link class="text-gray-700" to="/">Home</router-link>
+          <router-link class="text-gray-700" to="/">
+            Home
+          </router-link>
           <svg
             class="w-3 h-3 mx-3 fill-current"
             xmlns="http://www.w3.org/2000/svg"
@@ -16,9 +18,12 @@
           </svg>
         </li>
         <li class="flex items-center">
-          <router-link class="text-gray-700" to="/dashboard"
-            >Dashboard</router-link
+          <router-link
+            class="text-gray-700"
+            to="/dashboard"
           >
+            Dashboard
+          </router-link>
         </li>
       </ol>
     </nav>
@@ -27,7 +32,7 @@
     </div>
     <article class="prose lg:prose-xl">
       <h1>Garlic bread with cheese: What the science tells us</h1>
-      <div v-for="items in data" :key=items>
+      <div v-for="items in data" :key="items">
         <p>
           {{ items }}
         </p>
@@ -48,12 +53,12 @@ const api = import.meta.env.VITE_DA_API_KEY
 
 export default {
   setup() {
-    const url = ref(`https://ny.barplaybook.com/api/interviews?key=${api}&include_dictionary=1`) 
+    const url = ref(`https://ny.barplaybook.com/api/interviews?key=${api}&include_dictionary=1`)
     const { data } = useFetch(url, { method: 'GET' }, { refetch: true }).json()
     return {
-      data
+      data,
     }
-  }
+  },
 }
 </script>
 

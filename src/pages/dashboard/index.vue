@@ -1,6 +1,8 @@
 <template>
   <div class="flex justify-between px-4 mt-4 sm:px-8">
-    <h2 class="text-2xl text-gray-600">Dashboard</h2>
+    <h2 class="text-2xl text-gray-600">
+      Dashboard
+    </h2>
 
     <div class="flex items-center space-x-1 text-xs">
       <a href="#" class="font-bold text-indigo-700">Home</a>
@@ -30,8 +32,12 @@
         </svg>
       </div>
       <div class="px-4 text-gray-700">
-        <h3 class="text-sm tracking-wider">Total Member</h3>
-        <p class="text-3xl">12,768</p>
+        <h3 class="text-sm tracking-wider">
+          Total Member
+        </h3>
+        <p class="text-3xl">
+          12,768
+        </p>
       </div>
     </div>
 
@@ -53,8 +59,12 @@
         </svg>
       </div>
       <div class="px-4 text-gray-700">
-        <h3 class="text-sm tracking-wider">Total Post</h3>
-        <p class="text-3xl">39,265</p>
+        <h3 class="text-sm tracking-wider">
+          Total Post
+        </h3>
+        <p class="text-3xl">
+          39,265
+        </p>
       </div>
     </div>
 
@@ -76,8 +86,12 @@
         </svg>
       </div>
       <div class="px-4 text-gray-700">
-        <h3 class="text-sm tracking-wider">Total Comment</h3>
-        <p class="text-3xl">142,334</p>
+        <h3 class="text-sm tracking-wider">
+          Total Comment
+        </h3>
+        <p class="text-3xl">
+          142,334
+        </p>
       </div>
     </div>
 
@@ -99,26 +113,36 @@
         </svg>
       </div>
       <div class="px-4 text-gray-700">
-        <h3 class="text-sm tracking-wider">Server Load</h3>
-        <p class="text-3xl">34.12%</p>
+        <h3 class="text-sm tracking-wider">
+          Server Load
+        </h3>
+        <p class="text-3xl">
+          34.12%
+        </p>
       </div>
     </div>
   </div>
 
   <div class="grid grid-cols-1 gap-4 px-4 mt-8 sm:grid-cols-3 sm:px-8">
     <div class="px-4 py-2 overflow-hidden bg-white border rounded-md shadow">
-      <h3 class="mb-4 text-xl text-gray-600">Page View</h3>
+      <h3 class="mb-4 text-xl text-gray-600">
+        Page View
+      </h3>
       <apexchart type="area" :height="300" :options="pageViewOptions" :series="pageViewSeries"></apexchart>
     </div>
 
     <div class="px-4 py-2 overflow-hidden bg-white border rounded-md shadow">
-      <h3 class="mb-4 text-xl text-gray-600">Sessions by device</h3>
+      <h3 class="mb-4 text-xl text-gray-600">
+        Sessions by device
+      </h3>
       <apexchart type="donut" :height="300" :options="sessionsOptions" :series="sessionsSeries"></apexchart>
     </div>
 
     <div class="grid grid-rows-2 gap-4">
       <div class="px-4 py-2 bg-white border rounded-md shadow">
-        <h3 class="mb-2 text-xl text-gray-600">Popular Post</h3>
+        <h3 class="mb-2 text-xl text-gray-600">
+          Popular Post
+        </h3>
 
         <div class="flex flex-col">
           <div class="inline-block min-w-full align-middle">
@@ -137,16 +161,28 @@
                 </thead>
                 <tbody class="text-sm text-gray-500 divide-y divide-gray-200">
                   <tr>
-                    <td class="py-1">Create an Admin Panel with Vue.js and Tailwind CSS</td>
-                    <td class="py-1 text-sm text-gray-500">1,672</td>
+                    <td class="py-1">
+                      Create an Admin Panel with Vue.js and Tailwind CSS
+                    </td>
+                    <td class="py-1 text-sm text-gray-500">
+                      1,672
+                    </td>
                   </tr>
                   <tr>
-                    <td class="py-1">How To Center a Div</td>
-                    <td class="py-1 text-sm text-gray-500">1,423</td>
+                    <td class="py-1">
+                      How To Center a Div
+                    </td>
+                    <td class="py-1 text-sm text-gray-500">
+                      1,423
+                    </td>
                   </tr>
                   <tr>
-                    <td class="py-1">Let's Star This Project</td>
-                    <td class="py-1 text-sm text-gray-500">926</td>
+                    <td class="py-1">
+                      Let's Star This Project
+                    </td>
+                    <td class="py-1 text-sm text-gray-500">
+                      926
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -155,7 +191,9 @@
         </div>
       </div>
       <div class="px-4 py-2 bg-white border rounded-md shadow">
-        <h3 class="mb-2 text-xl text-gray-600">Top Contributor</h3>
+        <h3 class="mb-2 text-xl text-gray-600">
+          Top Contributor
+        </h3>
 
         <div class="flex flex-col">
           <div class="inline-block min-w-full align-middle">
@@ -178,19 +216,37 @@
                 </thead>
                 <tbody class="text-sm text-gray-500 divide-y divide-gray-200">
                   <tr>
-                    <td class="py-1 whitespace-nowrap">Seto Kuslaksono</td>
-                    <td class="py-1 text-sm text-right text-gray-500 whitespace-nowrap">41</td>
-                    <td class="py-1 text-sm text-right text-gray-500 whitespace-nowrap">12</td>
+                    <td class="py-1 whitespace-nowrap">
+                      Seto Kuslaksono
+                    </td>
+                    <td class="py-1 text-sm text-right text-gray-500 whitespace-nowrap">
+                      41
+                    </td>
+                    <td class="py-1 text-sm text-right text-gray-500 whitespace-nowrap">
+                      12
+                    </td>
                   </tr>
                   <tr>
-                    <td class="py-1 whitespace-nowrap">Some Dude</td>
-                    <td class="py-1 text-sm text-right text-gray-500 whitespace-nowrap">22</td>
-                    <td class="py-1 text-sm text-right text-gray-500 whitespace-nowrap">15</td>
+                    <td class="py-1 whitespace-nowrap">
+                      Some Dude
+                    </td>
+                    <td class="py-1 text-sm text-right text-gray-500 whitespace-nowrap">
+                      22
+                    </td>
+                    <td class="py-1 text-sm text-right text-gray-500 whitespace-nowrap">
+                      15
+                    </td>
                   </tr>
                   <tr>
-                    <td class="py-1 whitespace-nowrap">It Could Be You</td>
-                    <td class="py-1 text-sm text-right text-gray-500 whitespace-nowrap">12</td>
-                    <td class="py-1 text-sm text-right text-gray-500 whitespace-nowrap">4</td>
+                    <td class="py-1 whitespace-nowrap">
+                      It Could Be You
+                    </td>
+                    <td class="py-1 text-sm text-right text-gray-500 whitespace-nowrap">
+                      12
+                    </td>
+                    <td class="py-1 text-sm text-right text-gray-500 whitespace-nowrap">
+                      4
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -207,7 +263,9 @@
         <div
           class="flex flex-col items-center px-4 py-2 mb-2 space-y-2 text-gray-600 border-b-2 sm:flex-row sm:justify-between"
         >
-          <h3 class="tracking-wider">Top Author</h3>
+          <h3 class="tracking-wider">
+            Top Author
+          </h3>
           <TabList class="flex space-x-1">
             <Tab v-slot="{ selected }">
               <button
@@ -251,8 +309,12 @@
                     </div>
                   </td>
                   <td class="py-2 text-right">
-                    <div class="text-2xl">{{ author.postViews }}</div>
-                    <div class="text-sm">Post Views</div>
+                    <div class="text-2xl">
+                      {{ author.postViews }}
+                    </div>
+                    <div class="text-sm">
+                      Post Views
+                    </div>
                   </td>
                   <td class="hidden py-2 space-x-2 text-right sm:table-cell">
                     <button class="p-1 text-white bg-green-500 rounded-md hover:bg-green-600">
@@ -298,8 +360,12 @@
 
     <div class="bg-white border rounded-lg shadow sm:col-span-3">
       <div class="flex items-center justify-between px-4 py-2 mb-2 text-gray-600 border-b-2">
-        <h3 class="tracking-wider">Recent Sales</h3>
-        <button class="px-4 py-2 text-xs bg-gray-200 border rounded-sm hover:bg-gray-300">View All</button>
+        <h3 class="tracking-wider">
+          Recent Sales
+        </h3>
+        <button class="px-4 py-2 text-xs bg-gray-200 border rounded-sm hover:bg-gray-300">
+          View All
+        </button>
       </div>
       <div class="px-4">
         <table class="min-w-full divide-y divide-gray-200 table-fixed">
@@ -328,13 +394,21 @@
           </thead>
           <tbody class="text-sm text-gray-500 divide-y divide-gray-200">
             <tr v-for="sales in recentSales" :key="sales.orderId">
-              <td class="py-4 whitespace-nowrap">{{ sales.orderId }}</td>
-              <td class="py-4 text-sm text-gray-500 whitespace-nowrap">{{ sales.item }}</td>
-              <td class="py-4 text-sm text-gray-500 whitespace-nowrap">${{ sales.amount }}</td>
+              <td class="py-4 whitespace-nowrap">
+                {{ sales.orderId }}
+              </td>
+              <td class="py-4 text-sm text-gray-500 whitespace-nowrap">
+                {{ sales.item }}
+              </td>
+              <td class="py-4 text-sm text-gray-500 whitespace-nowrap">
+                ${{ sales.amount }}
+              </td>
               <td class="py-4 text-sm text-gray-500 whitespace-nowrap">
                 <span class="px-2 py-1 text-xs text-white rounded" :class="sales.labelClass">{{ sales.status }}</span>
               </td>
-              <td class="py-4 text-sm text-blue-600 whitespace-nowrap"><a href="#">View Detail</a></td>
+              <td class="py-4 text-sm text-blue-600 whitespace-nowrap">
+                <a href="#">View Detail</a>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -438,18 +512,12 @@
 
 <script lang="ts">
 import VueApexCharts from 'vue3-apexcharts'
-import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
 import topAuthors from '~/topAuthors.json'
 import recentSales from '~/recentSales.json'
 
 export default {
   components: {
     apexchart: VueApexCharts,
-    TabGroup,
-    TabList,
-    Tab,
-    TabPanels,
-    TabPanel,
   },
 
   setup() {

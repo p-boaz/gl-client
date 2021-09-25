@@ -1,9 +1,13 @@
 <template>
   <div class="flex justify-between px-4 mt-4 sm:px-8">
-    <h2 class="text-2xl text-gray-600">User List</h2>
+    <h2 class="text-2xl text-gray-600">
+      User List
+    </h2>
 
     <div class="flex items-center space-x-1 text-xs">
-      <router-link to="/" class="font-bold text-indigo-700">Home</router-link>
+      <router-link to="/" class="font-bold text-indigo-700">
+        Home
+      </router-link>
       <svg xmlns="http://www.w3.org/2000/svg" class="w-2 h-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
       </svg>
@@ -69,12 +73,24 @@
                 class="w-5 h-5 text-blue-500 border-gray-300 rounded cursor-pointer focus:ring-0"
               />
             </th>
-            <th class="text-left text-gray-600">USER</th>
-            <th class="text-left text-gray-600">ROLE</th>
-            <th class="text-left text-gray-600">STATUS</th>
-            <th class="text-left text-gray-600">LAST ACTIVITY</th>
-            <th class="text-left text-gray-600">JOIN DATE</th>
-            <th class="text-right text-gray-600">ACTIONS</th>
+            <th class="text-left text-gray-600">
+              USER
+            </th>
+            <th class="text-left text-gray-600">
+              ROLE
+            </th>
+            <th class="text-left text-gray-600">
+              STATUS
+            </th>
+            <th class="text-left text-gray-600">
+              LAST ACTIVITY
+            </th>
+            <th class="text-left text-gray-600">
+              JOIN DATE
+            </th>
+            <th class="text-right text-gray-600">
+              ACTIONS
+            </th>
           </tr>
         </thead>
         <tbody class="divide-y divide-gray-200">
@@ -292,18 +308,10 @@
 </template>
 
 <script lang="ts">
-import userList from '~/userList.json'
-import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import { ref } from 'vue'
+import userList from '~/userList.json'
 
 export default {
-  components: {
-    Menu,
-    MenuButton,
-    MenuItems,
-    MenuItem,
-  },
-
   setup() {
     const selectAll = ref(false)
 

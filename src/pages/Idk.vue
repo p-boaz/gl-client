@@ -22,77 +22,78 @@
   </div>
 </template>
 <script setup lang="ts">
-  import { ref, computed } from 'vue'
-	import { useFetch } from '@vueuse/core'
-  import { useToggle } from '@vueuse/shared'
-  
-  const nativeData = ref('')
-  const useNative = ref(false)
- 
-  
-  const buildFormData = () => {
-    const formData = new FormData()
-    formData.append(
-      "A", 
-      new Blob(
-        [JSON.stringify({ message: `Multipart A: ${Math.random()}`})], 
-        { type: 'application/json' }
-      ), 
-      'test-multipart-a.json'
-    )
-    formData.append(
-      "B", 
-      new Blob(
-        [JSON.stringify({ message: `Multipart B: ${Math.random()}`})], 
-        { type: 'application/json' }
-      ), 
-      'test-multipart-b.json'
-    )
-    return formData
-  }
+import { ref, computed } from 'vue'
+import { useFetch } from '@vueuse/core'
+import { useToggle } from '@vueuse/shared'
 
-  const { /*post, */execute, data } = useFetch('https://httpbin.org/post', {
-    immediate: false
-  }).post(buildFormData(), 'formData')
-  
-  const useFetchData = computed(() => {
-    if (nativeData.value) {
+const nativeData = ref('')
+const useNative = ref(false)
+
+const buildFormData = () => {
+  const formData = new FormData()
+  formData.append(
+    'A',
+    new Blob(
+      [JSON.stringify({ message: `Multipart A: ${Math.random()}` })],
+      { type: 'application/json' },
+    ),
+    'test-multipart-a.json',
+  )
+  formData.append(
+    'B',
+    new Blob(
+      [JSON.stringify({ message: `Multipart B: ${Math.random()}` })],
+      { type: 'application/json' },
+    ),
+    'test-multipart-b.json',
+  )
+  return formData
+}
+
+const { /* post, */execute, data } = useFetch('https://httpbin.org/post', {
+  immediate: false,
+}).post(buildFormData(), 'formData')
+
+const useFetchData = computed(() => {
+  if (nativeData.value) {
+    return ''
+  }
+  else {
+    if (data.value)
+      return JSON.stringify(data.value)
+    else
       return ''
-    } else {
-      if (data.value) {
-        return JSON.stringify(data.value)
-      } else {
-        return ''
-      }
-    }
-  })
-  
-  const usingUseFetch = async() => {
-    //const payload = await buildFormData()
-    //console.log(post)
-    nativeData.value = ''
-    useNative.value = false
-    try {
-      //console.log(post(payload, 'formData'))
-      await execute()
-    } catch(e) {
-      // just ignore
-      console.log('upps', e)
-    }
   }
-  const usingNativeFetch = async() => {
-    nativeData.value = ''
-    useNative.value = true
-    try {
-			const response = await fetch('https://httpbin.org/post', {
-        method: 'POST',
+})
+
+const usingUseFetch = async() => {
+  // const payload = await buildFormData()
+  // console.log(post)
+  nativeData.value = ''
+  useNative.value = false
+  try {
+    // console.log(post(payload, 'formData'))
+    await execute()
+  }
+  catch (e) {
+    // just ignore
+    console.log('upps', e)
+  }
+}
+const usingNativeFetch = async() => {
+  nativeData.value = ''
+  useNative.value = true
+  try {
+    const response = await fetch('https://httpbin.org/post', {
+      method: 'POST',
   			body: buildFormData(),
-      })
-      nativeData.value = await response.json()
-    } catch (ignore) {
-      // just ignore error
-    }
+    })
+    nativeData.value = await response.json()
   }
+  catch (ignore) {
+    // just ignore error
+  }
+}
 </script>
 
 <style>
@@ -116,3 +117,8 @@
     font-size: 0.6rem;
   }
 </style>
+
+<route lang="yaml">
+meta:
+  layout: dashboard
+</route>

@@ -1,7 +1,6 @@
 const tags = [
-    "Sales",
-    "Human Resources",
-  ]
-  
-  export default tags
-  
+  'Sales',
+  'Human Resources',
+]
+
+export default tags

@@ -1,6 +1,8 @@
 <template>
   <div class="mt-5">
-    <h4 class="text-gray-700">Horizontal</h4>
+    <h4 class="text-gray-700">
+      Horizontal
+    </h4>
     <div class="w-full max-w-sm mt-6 lg:max-w-full lg:flex">
       <div
         class="flex-none h-48 overflow-hidden text-center bg-cover rounded-t  lg:h-auto lg:w-48 lg:rounded-t-none lg:rounded-l"
@@ -19,7 +21,9 @@
             </svg>
             Members only
           </p>
-          <div class="mb-2 text-xl font-bold text-gray-900">Can coffee make you a better developer?</div>
+          <div class="mb-2 text-xl font-bold text-gray-900">
+            Can coffee make you a better developer?
+          </div>
           <p class="text-base text-gray-700">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis
             eaque, exercitationem praesentium nihil.
@@ -32,12 +36,15 @@
             alt="Avatar of Jonathan Reinink"
           />
           <div class="text-sm">
-            <p class="leading-none text-gray-900">Jonathan Reinink</p>
-            <p class="text-gray-600">Aug 18</p>
+            <p class="leading-none text-gray-900">
+              Jonathan Reinink
+            </p>
+            <p class="text-gray-600">
+              Aug 18
+            </p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
-

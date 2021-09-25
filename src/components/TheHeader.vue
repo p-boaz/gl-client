@@ -42,9 +42,10 @@
         >
           <div>
             <MenuItem v-slot="{ active }">
-              <a href="#" :class="[active ? 'bg-gray-200' : '', 'block px-4 py-2 text-sm text-gray-700']"
-                >Your Profile</a
-              >
+              <a
+                href="#"
+                :class="[active ? 'bg-gray-200' : '', 'block px-4 py-2 text-sm text-gray-700']"
+              >Your Profile</a>
             </MenuItem>
             <MenuItem v-slot="{ active }">
               <a href="#" :class="[active ? 'bg-gray-200' : '', 'block px-4 py-2 text-sm text-gray-700']">Settings</a>
@@ -54,8 +55,9 @@
             <router-link
               to="/"
               :class="[active ? 'bg-gray-200' : '', 'block px-4 py-2 text-sm text-gray-700']"
-              >Sign out</router-link
             >
+              Sign out
+            </router-link>
           </MenuItem>
         </MenuItems>
       </transition>
@@ -64,15 +66,8 @@
 </template>
 
 <script lang="ts">
-import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 
 export default {
-  name: "TheHeader",
-  components: {
-    Menu,
-    MenuButton,
-    MenuItems,
-    MenuItem,
-  },
+  name: 'TheHeader',
 }
 </script>

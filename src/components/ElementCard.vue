@@ -14,10 +14,8 @@
 </template>
 
 
-<script>
+<script lang="ts">
 import axios from "axios"
-import IntFilter from "./../components/IntFilter.vue"
-import IntList from "./../components/IntList.vue"
 const api = import.meta.env.VITE_DA_API_KEY
 
 export default {
