@@ -30,13 +30,9 @@
   </div>
 </template>
 
-<script>
-import {
-  defineComponent,
-  useFetch,
-  useContext,
-  ref,
-} from '@nuxtjs/composition-api'
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
+import { useFetch, useContext } from '@vueuse/core'
 
 import Author from '~/components/Author.vue'
 

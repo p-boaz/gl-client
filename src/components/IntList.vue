@@ -2,17 +2,20 @@
   <div
     class="grid gap-4 grid-cols-3"
   >
-    <IntCard v-for="(item, index) in items" :key="index" :item="item" />
+    <ul>
+      <li v-for="activity in activities" :key="activity"></li>
+    </ul>
   </div>
 </template>
 
 <script lang="ts">
-export default {
+
+export default defineComponent({
   props: {
-    items: {
+    activities: {
       type: Array,
       required: true,
     },
   },
-}
+})
 </script>

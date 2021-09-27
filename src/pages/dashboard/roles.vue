@@ -52,7 +52,7 @@ import { ref } from 'vue'
 const api = import.meta.env.VITE_DA_API_KEY
 
 export default {
-  setup() {
+  async setup() {
     const url = ref(`https://ny.barplaybook.com/api/interviews?key=${api}&include_dictionary=1`)
     const { data } = useFetch(url, { method: 'GET' }, { refetch: true }).json()
     return {

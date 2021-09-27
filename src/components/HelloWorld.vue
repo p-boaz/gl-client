@@ -23,7 +23,7 @@ export default {
   },
   setup() {
     const query = ref('')
-    const reset = (evt) => {
+    const reset = (evt: any) => {
       query.value = '' // clears the query
     }
 

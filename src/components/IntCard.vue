@@ -114,12 +114,12 @@
 </template>
 
 <script lang="ts">
-export default {
+export default defineComponent({
   props: {
     item: {
       type: Object,
       required: true,
     },
   },
-}
+})
 </script>
