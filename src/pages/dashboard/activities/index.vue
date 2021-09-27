@@ -16,25 +16,21 @@
   </div>
 
   <div class="gap-4 px-4 mt-8">
-    <h2 class="mb-8 text-4xl font-bold text-center capitalize">
-      Business Function: <span class="text-green-700">{{ tag }}</span>
-    </h2>
-    <IntFilter v-model="tag" :fetch="fetchItems" />
-    <IntList :activity="activity" />
+    <IntList :activities="activities" />
   </div>
 </template>
 
 <script lang="ts">
 import IntList from '~/components/IntList.vue'
-import getActivity from '~/modules/activities'
+import getActivities from '~/modules/activities'
 
 export default defineComponent({
   name: 'Activities',
   components: { IntList },
-  async setup() {
-    const { activity } = await getActivity()
+  setup() {
+    const activities = getActivities()
 
-    return { activity }
+    return { activities }
   },
 })
 </script>

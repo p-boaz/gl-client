@@ -152,7 +152,7 @@
         </li>
 
         <li class="px-4 hover:bg-gray-700">
-          <router-link to="/dashboard/reports" class="flex items-center py-3">
+          <router-link to="/dashboard/activities" class="flex items-center py-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="w-5 h-5 mr-2"
@@ -173,7 +173,7 @@
                 d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
               />
             </svg>
-            Reports
+            Processing Activities
           </router-link>
         </li>
 
