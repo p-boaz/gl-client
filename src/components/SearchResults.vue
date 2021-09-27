@@ -35,28 +35,28 @@ export default {
 
 <style scoped>
 .root {
-	width: 400px;
-	margin: 0 auto;
+width: 400px;
+margin: 0 auto;
 }
 .root p {
-	text-align: right;
-	font-size: 0.7em;
-	margin: 0;
+text-align: right;
+font-size: 0.7em;
+margin: 0;
 }
 ul {
-	list-style:  none;
-	width: 50px 0;
-	padding: 0;
-	background-color: #fafafa;
-	border-radius: 5px;
-	border: 1px solid #ddd;
+list-style:  none;
+width: 50px 0;
+padding: 0;
+background-color: #fafafa;
+border-radius: 5px;
+border: 1px solid #ddd;
 }
 li {
-	text-align: left;
-	padding: 20px;
-	border-bottom: 1px solid #ddd;
+text-align: left;
+padding: 20px;
+border-bottom: 1px solid #ddd;
 }
 li:nth-last-of-type(1) {
-	border-bottom: none;
+border-bottom: none;
 }
 </style>

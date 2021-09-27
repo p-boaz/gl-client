@@ -1,8 +1,8 @@
 import useApi from './api'
 const api = import.meta.env.VITE_DA_API_KEY
 
-export default async function useUsers() {
-  const { response: users, request } = useApi(`https://ny.barplaybook.com/api/user_list?key=${api}`)
+export default async function getProfile() {
+  const { response: profile, request } = useApi(`https://ny.barplaybook.com/api/user?key=${api}`)
 
   const loaded = ref(false)
 
@@ -10,5 +10,5 @@ export default async function useUsers() {
     await request()
   loaded.value = true
 
-  return { users }
+  return { profile }
 }

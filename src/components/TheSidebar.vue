@@ -95,7 +95,7 @@
                     </DisclosureButton>
                     <DisclosurePanel>
                       <ul>
-                        <router-link v-slot="{ isExactActive, href, navigate }" to="/users" custom>
+                        <router-link v-slot="{ isExactActive, href, navigate }" to="/dashboard/users" custom>
                           <li
                             class="pl-12"
                             :class="[isExactActive ? 'bg-gray-500 text-gray-800' : 'hover:bg-gray-700']"

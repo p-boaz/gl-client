@@ -83,10 +83,10 @@
               STATUS
             </th>
             <th class="text-left text-gray-600">
-              LAST ACTIVITY
+              OFFICE
             </th>
             <th class="text-left text-gray-600">
-              JOIN DATE
+              LAST ACTIVITY
             </th>
             <th class="text-right text-gray-600">
               ACTIONS
@@ -94,7 +94,7 @@
           </tr>
         </thead>
         <tbody class="divide-y divide-gray-200">
-          <tr v-for="key in items.items" :key="key">
+          <tr v-for="key in users.items" :key="key">
             <td class="p-2">
               <input
                 type="checkbox"
@@ -106,20 +106,20 @@
               <img class="inline-block w-12 h-12 rounded-full ring-2 ring-white" alt="" />
               <div class="px-4">
                 <div>
-                  <a href="#" class="text-gray-600 font-bolder">{{ key.first_name }}</a>
+                  <a href="#" class="text-gray-600 font-bolder">{{ key.first_name }} {{ key.last_name }}</a>
                 </div>
                 <div class="text-sm font-bold">
                   {{ key.email }}
                 </div>
               </div>
             </td>
-            <td>{{ key.permissions }}</td>
+            <td>{{ key.privileges }}</td>
             <td>
               <span v-if="key.isActive" class="px-2 py-1 text-xs text-white bg-green-500 rounded">Active</span>
-              <span v-else class="px-2 py-1 text-xs text-white bg-red-500 rounded">Suspended</span>
+              <span v-else class="px-2 py-1 text-xs text-white bg-green-500 rounded">Active</span>
             </td>
-            <td>{{ key.last_name }}</td>
-            <td>{{ key.country }}</td>
+            <td>{{ key.subdivisionsecond }}</td>
+            <td>{{ key.organization }}</td>
             <td class="text-right">
               <Menu as="div" class="relative inline-block text-left">
                 <div>
@@ -311,14 +311,14 @@
 import useUsers from '~/modules/users'
 
 export default defineComponent({
-  name: 'items.items',
+  name: 'UserList',
   props: {
     msg: String,
   },
   async setup() {
-    const { items } = await useUsers()
+    const { users } = await useUsers()
 
-    return { items }
+    return { users }
     selectAll
   },
 })

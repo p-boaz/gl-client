@@ -24,7 +24,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useFetch } from '@vueuse/core'
-import { useToggle } from '@vueuse/shared'
+const api = import.meta.env.VITE_DA_API_KEY
 
 const nativeData = ref('')
 const useNative = ref(false)
@@ -50,7 +50,7 @@ const buildFormData = () => {
   return formData
 }
 
-const { /* post, */execute, data } = useFetch('https://httpbin.org/post', {
+const { /* post, */execute, data } = useFetch(`https://ny.barplaybook.com/api/temp_url?key=${api}&url=https://ny.barplaybook.com`, {
   immediate: false,
 }).post(buildFormData(), 'formData')
 

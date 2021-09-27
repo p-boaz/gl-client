@@ -1,9 +1,17 @@
 <script setup lang="ts">
+// import getInterview from '~/modules/interview'
 const api = import.meta.env.VITE_DA_API_KEY
-const props = defineProps<{ id: String; filename: String }>()
+const props = defineProps({
+  id: String,
+  filename: {
+    type: String,
+    required: true,
+  },
+})
 const router = useRouter()
 const { t } = useI18n()
-// const post = await fetch(`https://ny.barplaybook.com/api/session?key=${api}&session=${id}`).then(r => r.json())
+
+// const { interview } = await getInterview().then(r => r.json())
 
 </script>
 
@@ -24,7 +32,7 @@ const { t } = useI18n()
             Full name
           </dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ {filename: props.filename} }}
+            {{ props.filename }}
           </dd>
         </div>
         <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -67,7 +75,7 @@ const { t } = useI18n()
             <ul role="list" class="border border-gray-200 rounded-md divide-y divide-gray-200">
               <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
                 <div class="w-0 flex-1 flex items-center">
-                  <PaperClipIcon class="flex-shrink-0 h-5 w-5 text-gray-400" aria-hidden="true" />
+                  <foundation:paperclip class="flex-shrink-0 h-5 w-5 text-gray-400" aria-hidden="true" />
                   <span class="ml-2 flex-1 w-0 truncate">
                     resume_back_end_developer.pdf
                   </span>
@@ -80,7 +88,7 @@ const { t } = useI18n()
               </li>
               <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
                 <div class="w-0 flex-1 flex items-center">
-                  <PaperClipIcon class="flex-shrink-0 h-5 w-5 text-gray-400" aria-hidden="true" />
+                  <foundation:paperclip class="flex-shrink-0 h-5 w-5 text-gray-400" aria-hidden="true" />
                   <span class="ml-2 flex-1 w-0 truncate">
                     coverletter_back_end_developer.pdf
                   </span>
@@ -104,11 +112,6 @@ const { t } = useI18n()
     </div>
   </div>
 </template>
-
-<script lang="ts">
-export default {
-}
-</script>
 
 <style scoped>
 .inline-flex {
