@@ -32,14 +32,14 @@
     </div>
     <article class="prose lg:prose-xl">
       <h1>Garlic bread with cheese: What the science tells us</h1>
-      <div v-for="items in data" :key="items">
+      <!-- <div v-for="items in data" :key="items">
         <p>
           {{ items }}
         </p>
-      </div>
+      </div> -->
+
       <p>
-        But a recent study shows that the celebrated appetizer may be linked to
-        a series of rabies cases springing up around the country.
+        {{ nested.data.value }}
       </p>
       <!-- ... -->
     </article>
@@ -57,6 +57,10 @@ export default {
     const { data } = useFetch(url, { method: 'GET' }, { refetch: true }).json()
     return {
       data,
+
+      nested: {
+        data,
+      },
     }
   },
 }

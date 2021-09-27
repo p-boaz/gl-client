@@ -1,7 +1,10 @@
 <script setup lang="ts">
-const item = defineProps<{ id: string }>()
+const api = import.meta.env.VITE_DA_API_KEY
+const props = defineProps<{ id: String; filename: String }>()
 const router = useRouter()
 const { t } = useI18n()
+// const post = await fetch(`https://ny.barplaybook.com/api/session?key=${api}&session=${id}`).then(r => r.json())
+
 </script>
 
 <template>
@@ -11,7 +14,7 @@ const { t } = useI18n()
         Applicant Information
       </h3>
       <p class="mt-1 max-w-2xl text-sm text-gray-500">
-        {{ t('intro.hello', { id: id }) }}
+        {{ t('intro.hello', { id: props.id }) }}
       </p>
     </div>
     <div class="border-t border-gray-200">
@@ -21,7 +24,7 @@ const { t } = useI18n()
             Full name
           </dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            Margot Foster
+            {{ {filename: props.filename} }}
           </dd>
         </div>
         <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -104,12 +107,6 @@ const { t } = useI18n()
 
 <script lang="ts">
 export default {
-  props: {
-    item: {
-      type: Object,
-      required: true,
-    },
-  },
 }
 </script>
 

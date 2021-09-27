@@ -94,7 +94,7 @@
           </tr>
         </thead>
         <tbody class="divide-y divide-gray-200">
-          <tr v-for="user in userList" :key="user.id">
+          <tr v-for="key in items.items" :key="key">
             <td class="p-2">
               <input
                 type="checkbox"
@@ -103,23 +103,23 @@
               />
             </td>
             <td class="flex items-center py-4">
-              <img class="inline-block w-12 h-12 rounded-full ring-2 ring-white" :src="user.avatar" alt="" />
+              <img class="inline-block w-12 h-12 rounded-full ring-2 ring-white" alt="" />
               <div class="px-4">
                 <div>
-                  <a href="#" class="text-gray-600 font-bolder">{{ user.name }}</a>
+                  <a href="#" class="text-gray-600 font-bolder">{{ key.first_name }}</a>
                 </div>
                 <div class="text-sm font-bold">
-                  {{ user.email }}
+                  {{ key.email }}
                 </div>
               </div>
             </td>
-            <td>{{ user.role }}</td>
+            <td>{{ key.permissions }}</td>
             <td>
-              <span v-if="user.isActive" class="px-2 py-1 text-xs text-white bg-green-500 rounded">Active</span>
+              <span v-if="key.isActive" class="px-2 py-1 text-xs text-white bg-green-500 rounded">Active</span>
               <span v-else class="px-2 py-1 text-xs text-white bg-red-500 rounded">Suspended</span>
             </td>
-            <td>{{ user.lastActivity }}</td>
-            <td>{{ user.joinDate }}</td>
+            <td>{{ key.last_name }}</td>
+            <td>{{ key.country }}</td>
             <td class="text-right">
               <Menu as="div" class="relative inline-block text-left">
                 <div>
@@ -308,17 +308,18 @@
 </template>
 
 <script lang="ts">
-import { ref } from 'vue'
-import userList from '~/userList.json'
+import useUsers from '~/modules/users'
 
-export default {
-  setup() {
-    const selectAll = ref(false)
-
-    return {
-      userList,
-      selectAll,
-    }
+export default defineComponent({
+  name: 'items.items',
+  props: {
+    msg: String,
   },
-}
+  async setup() {
+    const { items } = await useUsers()
+
+    return { items }
+    selectAll
+  },
+})
 </script>
