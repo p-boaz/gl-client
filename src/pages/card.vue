@@ -21,8 +21,8 @@
 </template>
 
 <script lang="ts">
-import { CardHorizontal } from '~/components/CardHorizontal'
-import { CardStacked } from '~/components/CardStacked'
+import CardHorizontal from '~/components/CardHorizontal.vue'
+import CardStacked from '~/components/CardStacked.vue'
 
 export default {
   components: {
