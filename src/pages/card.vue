@@ -20,6 +20,18 @@
   </div>
 </template>
 
+<script lang="ts">
+import { CardHorizontal } from '~/components/CardHorizontal'
+import { CardStacked } from '~/components/CardStacked'
+
+export default {
+  components: {
+    CardHorizontal,
+    CardStacked,
+  },
+}
+</script>
+
 <route lang="yaml">
 meta:
   layout: home

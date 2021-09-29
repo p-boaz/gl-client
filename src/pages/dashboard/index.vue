@@ -511,8 +511,16 @@
 <script lang="ts">
 import topAuthors from '~/topAuthors.json'
 import recentSales from '~/recentSales.json'
+import TheSidebar from '~/components/TheSidebar.vue'
+import TheHeader from '~/components/TheHeader.vue'
+import TheFooter from '~/components/TheFooter.vue'
 
 export default {
+  components: {
+    TheSidebar,
+    TheHeader,
+    TheFooter,
+  },
 
   setup() {
     const pageViewOptions = {

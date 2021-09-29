@@ -66,8 +66,14 @@
 </template>
 
 <script lang="ts">
+import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 
 export default {
-  name: 'TheHeader',
+  components: {
+    Menu,
+    MenuButton,
+    MenuItems,
+    MenuItem,
+  },
 }
 </script>

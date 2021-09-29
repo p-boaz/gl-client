@@ -319,8 +319,14 @@
 <script script lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 
 export default {
+  components: {
+    Disclosure,
+    DisclosureButton,
+    DisclosurePanel,
+  },
 
   setup() {
     const route = useRoute()
