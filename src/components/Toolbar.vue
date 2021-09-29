@@ -68,22 +68,21 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, inject } from 'vue'
 
-const auth0: any = inject('auth0')
+// const auth0: any = inject('auth0')
 
 defineProps({
   msg: String,
 })
 
-function login() {
-  // https://auth0.github.io/auth0-spa-js/classes/auth0client.html#loginwithredirect
-  auth0.client.loginWithRedirect()
-}
-function logout() {
-  // https://auth0.github.io/auth0-spa-js/interfaces/logoutoptions.html
-  auth0.client.logout({ returnTo: window.location.origin })
-}
+// function login() {
+//   // https://auth0.github.io/auth0-spa-js/classes/auth0client.html#loginwithredirect
+//   auth0.client.loginWithRedirect()
+// }
+// function logout() {
+//   // https://auth0.github.io/auth0-spa-js/interfaces/logoutoptions.html
+//   auth0.client.logout({ returnTo: window.location.origin })
+// }
 </script>
 
 <!-- Require css -->
