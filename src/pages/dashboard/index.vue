@@ -128,14 +128,12 @@
       <h3 class="mb-4 text-xl text-gray-600">
         Page View
       </h3>
-      <apexchart type="area" :height="300" :options="pageViewOptions" :series="pageViewSeries"></apexchart>
     </div>
 
     <div class="px-4 py-2 overflow-hidden bg-white border rounded-md shadow">
       <h3 class="mb-4 text-xl text-gray-600">
         Sessions by device
       </h3>
-      <apexchart type="donut" :height="300" :options="sessionsOptions" :series="sessionsSeries"></apexchart>
     </div>
 
     <div class="grid grid-rows-2 gap-4">
@@ -511,14 +509,10 @@
 </template>
 
 <script lang="ts">
-import VueApexCharts from 'vue3-apexcharts'
 import topAuthors from '~/topAuthors.json'
 import recentSales from '~/recentSales.json'
 
 export default {
-  components: {
-    apexchart: VueApexCharts,
-  },
 
   setup() {
     const pageViewOptions = {
