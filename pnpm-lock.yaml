@@ -41,7 +41,6 @@ specifiers:
   vue-i18n: ^9.1.7
   vue-router: ^4.0.11
   vue-tsc: ^0.3.0
-  vue3-apexcharts: ^1.4.1
 
 dependencies:
   '@headlessui/vue': 1.4.1_vue@3.2.19
@@ -56,7 +55,6 @@ dependencies:
   vue-demi: 0.11.4_vue@3.2.19
   vue-i18n: 9.1.7_vue@3.2.19
   vue-router: 4.0.11_vue@3.2.19
-  vue3-apexcharts: 1.4.1_apexcharts@3.28.3+vue@3.2.19
 
 devDependencies:
   '@antfu/eslint-config': 0.9.0_eslint@7.32.0+typescript@4.4.3
@@ -6340,16 +6338,6 @@ packages:
       '@vue/runtime-dom': 3.2.19
       '@vue/server-renderer': 3.2.19_vue@3.2.19
       '@vue/shared': 3.2.19
-
-  /vue3-apexcharts/1.4.1_apexcharts@3.28.3+vue@3.2.19:
-    resolution: {integrity: sha512-96qP8JDqB9vwU7bkG5nVU+E0UGQn7yYQVqUUCLQMYWDuQyu2vE77H/UFZ1yI+hwzlSTBKT9BqnNG8JsFegB3eg==}
-    peerDependencies:
-      apexcharts: '> 3.0.0'
-      vue: '> 3.0.0'
-    dependencies:
-      apexcharts: 3.28.3
-      vue: 3.2.19
-    dev: false
 
   /w3c-hr-time/1.0.2:
     resolution: {integrity: sha512-z8P5DvDNjKDoFIHK7q8r8lackT6l+jo/Ye3HOle7l9nICP9lf1Ci25fy9vHd0JOWewkIFzXIEig3TdKT7JQ5fQ==}
