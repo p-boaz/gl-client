@@ -45,7 +45,7 @@
 
           <div class="flex items-center py-2 -mx-1 md:mx-0">
             <!-- <a type="button" class="block w-1/2 px-3 py-2 mx-1 text-sm font-medium leading-5 text-center text-white transition-colors duration-200 transform bg-gray-500 rounded-md hover:bg-blue-600 md:mx-2 md:w-auto" href="#" @click="logout">Logout</a> -->
-            <a type="button" class="block w-1/2 px-3 py-2 mx-1 text-sm font-medium leading-5 text-center text-white transition-colors duration-200 transform bg-gray-500 rounded-md hover:bg-blue-600 md:mx-2 md:w-auto" href="#" @click="login">Login</a>
+            <a type="button" class="block w-1/2 px-3 py-2 mx-1 text-sm font-medium leading-5 text-center text-white transition-colors duration-200 transform bg-gray-500 rounded-md hover:bg-blue-600 md:mx-2 md:w-auto" href="#">Login</a>
             <a class="block w-1/2 px-3 py-2 mx-1 text-sm font-medium leading-5 text-center text-white transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-600 md:mx-0 md:w-auto" href="#">Join</a>
           </div>
 
@@ -69,20 +69,10 @@
 
 <script setup lang="ts">
 
-// const auth0: any = inject('auth0')
-
 defineProps({
   msg: String,
 })
 
-// function login() {
-//   // https://auth0.github.io/auth0-spa-js/classes/auth0client.html#loginwithredirect
-//   auth0.client.loginWithRedirect()
-// }
-// function logout() {
-//   // https://auth0.github.io/auth0-spa-js/interfaces/logoutoptions.html
-//   auth0.client.logout({ returnTo: window.location.origin })
-// }
 </script>
 
 <!-- Require css -->
