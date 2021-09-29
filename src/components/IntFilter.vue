@@ -47,7 +47,8 @@ export default {
     modelValue: String,
     fetch: Function,
   },
-  setup(props, { emit }) {
+  emits: ['update:modelValue'],
+  setup(props: { modelValue: string|undefined }, { emit }: any) {
     const tag = computed({
       get: () => props.modelValue,
       set: value => emit('update:modelValue', value),

@@ -1,10 +1,11 @@
 <template>
   <div class="flex justify-between px-4 mt-4 sm:px-8">
     <h2 class="text-2xl text-gray-600">
-      Data Processing
+      Data Processing Activities
     </h2>
 
     <div class="flex items-center space-x-1 text-xs">
+      <a href="#" class="font-bold text-indigo-700">Home</a>
       <router-link to="/" class="font-bold text-indigo-700">
         Home
       </router-link>
@@ -16,21 +17,85 @@
   </div>
 
   <div class="gap-4 px-4 mt-8">
-    <IntList :activities="activities" />
+    <h2 class="mb-8 text-4xl font-bold text-center capitalize">
+      Business Function: <span class="text-green-700">{{ tag }}</span>
+    </h2>
+    <IntFilter v-model="tag" :fetch="fetchItems" />
+    <IntList v-if="!loading && !error" :items="items" />
+    <!-- Start of loading animation -->
+    <div v-if="loading" class="mt-40">
+      <p class="text-6xl font-bold text-center text-gray-500 animate-pulse">
+        Loading...
+      </p>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
+import axios from 'axios'
 import IntList from '~/components/IntList.vue'
-import getActivities from '~/modules/activities'
+import IntFilter from '~/components/IntCard.vue'
+const api = import.meta.env.VITE_DA_API_KEY
 
 export default defineComponent({
-  name: 'Activities',
-  components: { IntList },
-  setup() {
-    const activities = getActivities()
-
-    return { activities }
+  components: {
+    IntList,
+    IntFilter,
+  },
+  data() {
+    return {
+      tag: 'Sales',
+      items: [],
+      loading: false,
+      error: null,
+    }
+  },
+  mounted() {
+    this.fetchItems()
+  },
+  methods: {
+    async fetchItems() {
+      try {
+        this.error = null
+        this.loading = true
+        const url = `https://ny.barplaybook.com/api/interviews?key=${api}&tag=${this.tag}&include_dictionary=1`
+        const response = await axios.get(url)
+        const results = response.data.items
+        this.items = results.map((item: { session: any; title: any; email: any; tags: any; filename: any; published_date: any; dict: any }) => ({
+          session: item.session,
+          title: item.title,
+          email: item.email,
+          tags: item.tags,
+          filename: item.filename,
+          published_date: item.published_date,
+          dict: item.dict,
+        }))
+      }
+      catch (err) {
+        if (err.response) {
+          // client received an error response (5xx, 4xx)
+          this.error = {
+            title: 'Server Response',
+            message: err.message,
+          }
+        }
+        else if (err.request) {
+          // client never received a response, or request never left
+          this.error = {
+            title: 'Unable to Reach Server',
+            message: err.message,
+          }
+        }
+        else {
+          // There's probably an error in your code
+          this.error = {
+            title: 'Application Error',
+            message: err.message,
+          }
+        }
+      }
+      this.loading = false
+    },
   },
 })
 </script>

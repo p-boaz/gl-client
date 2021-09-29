@@ -31,7 +31,7 @@
                 </span>
               </div>
               <div class="flex-shrink-0 ml-4">
-                <router-link :to="`/dashboard/reports/${item.session}`" class="font-medium text-indigo-600 hover:text-indigo-500">
+                <router-link :to="`/dashboard/activities/${item.session}`" class="font-medium text-indigo-600 hover:text-indigo-500">
                   View
                 </router-link>
               </div>
@@ -120,6 +120,19 @@ export default defineComponent({
       type: Object,
       required: true,
     },
+    fetch: Function,
+  },
+  emits: ['item.filename'],
+
+  setup(props, { emit }) {
+    const filename = computed({
+      get: () => props.item.filename,
+      set: value => emit('item.filename', value),
+    })
+
+    return {
+      filename,
+    }
   },
 })
 </script>

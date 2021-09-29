@@ -150,6 +150,10 @@ export default defineConfig({
   ssgOptions: {
     script: 'async',
     formatting: 'minify',
+    includedRoutes(routes) {
+      // exclude all the route paths that contains 'foo'
+      return routes.filter(i => !i.includes('foo'))
+    },
   },
 
   optimizeDeps: {

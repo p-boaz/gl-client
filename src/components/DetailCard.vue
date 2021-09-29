@@ -1,16 +1,34 @@
 <script lang="ts">
 import getInterview from '~/modules/interview'
+import useApi from '~/modules/api'
+import { Interview } from '~/types'
+const api = import.meta.env.VITE_DA_API_KEY
 
 export default defineComponent({
   props: {
-    msg: String,
+    filename: String,
+    id: String,
   },
-  async setup() {
-    const { interview } = await getInterview()
+
+  async setup(props) {
+    getInterview()
+    const { response: interview, request } = useApi<Interview>(`https://ny.barplaybook.com/api/session?key=${api}&session=${props.id}&i=docassemble.testServer:data/questions/aaDataTypes.yml`)
+
+    const loaded = ref(false)
+
+    if (loaded.value === false)
+      await request()
+    loaded.value = true
 
     return { interview }
   },
-})
+},
+  // async setup() {
+  //   const { interview } = await getInterview()
+
+  //   return { interview }
+  // },
+)
 </script>
 
 <template>
