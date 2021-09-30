@@ -115,12 +115,12 @@
 
 <script lang="ts">
 export default defineComponent({
+  name: 'IntCard',
   props: {
     item: {
       type: Object,
       required: true,
     },
-    fetch: Function,
   },
   emits: ['item.filename'],
 

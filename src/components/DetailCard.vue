@@ -5,6 +5,7 @@ import { Interview } from '~/types'
 const api = import.meta.env.VITE_DA_API_KEY
 
 export default defineComponent({
+  name: 'DetailCard',
   props: {
     filename: String,
     id: String,

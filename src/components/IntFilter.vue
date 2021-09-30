@@ -43,6 +43,7 @@ import { computed } from 'vue'
 import tagsData from './sections.js'
 
 export default {
+  name: 'IntFilter',
   props: {
     modelValue: String,
     fetch: Function,

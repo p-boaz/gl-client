@@ -42,10 +42,10 @@
         >
           <div>
             <MenuItem v-slot="{ active }">
-              <a
-                href="#"
+              <router-link
+                to="/dashboard/profile"
                 :class="[active ? 'bg-gray-200' : '', 'block px-4 py-2 text-sm text-gray-700']"
-              >Your Profile</a>
+              >Profile</router-link>
             </MenuItem>
             <MenuItem v-slot="{ active }">
               <a href="#" :class="[active ? 'bg-gray-200' : '', 'block px-4 py-2 text-sm text-gray-700']">Settings</a>

@@ -18,6 +18,7 @@
 import { ref } from 'vue'
 import SearchResults from './SearchResults.vue'
 export default {
+  name: 'HelloWorld',
   components: {
     SearchResults,
   },

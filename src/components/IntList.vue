@@ -8,6 +8,7 @@
 
 <script lang="ts">
 export default {
+  name: 'IntList',
   props: {
     items: {
       type: Array,
