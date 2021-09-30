@@ -1,11 +1,16 @@
 <script lang="ts">
-import getInterview from '~/modules/interview'
+import ResumeButton from './ResumeButton.vue'
 import useApi from '~/modules/api'
+import getInterview from '~/modules/interview'
 import { Interview } from '~/types'
 const api = import.meta.env.VITE_DA_API_KEY
+const router = useRouter()
 
 export default defineComponent({
   name: 'DetailCard',
+  components: {
+    ResumeButton,
+  },
   props: {
     filename: String,
     id: String,
@@ -13,7 +18,7 @@ export default defineComponent({
 
   async setup(props) {
     getInterview()
-    const { response: interview, request } = useApi<Interview>(`https://ny.barplaybook.com/api/session?key=${api}&session=${props.id}&i=docassemble.testServer:data/questions/aaDataTypes.yml`)
+    const { response: interview, request } = useApi<Interview>(`https://ny.barplaybook.com/api/session?key=${api}&session=${props.id}&i=docassemble.testServer:data/questions/aaDataTypes.yml&json=1`)
 
     const loaded = ref(false)
 
@@ -23,25 +28,25 @@ export default defineComponent({
 
     return { interview }
   },
-},
-  // async setup() {
-  //   const { interview } = await getInterview()
 
-  //   return { interview }
-  // },
-)
+})
 </script>
 
 <template>
   <div class="bg-white shadow overflow-hidden sm:rounded-lg m-8">
-    <div class="px-4 py-5 sm:px-6">
+    <div class="flex flex-row items-center justify-between px-4 py-5 sm:px-6">
       <h3 class="text-lg leading-6 font-medium text-gray-900">
         {{ interview.product }}
       </h3>
-      <p class="mt-1 max-w-2xl text-sm text-gray-500">
+      <resume-button :id="id" />
+    </div>
+
+    <div>
+      <p class="px-4 text-sm text-gray-500">
         {{ interview.funnel }} Data
       </p>
     </div>
+
     <div class="border-t border-gray-200">
       <dl>
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -120,6 +125,14 @@ export default defineComponent({
           </dd>
         </div>
       </dl>
+      <div>
+        <button
+          class="btn m-3 text-sm mt-6"
+          @click="router.back()"
+        >
+          {{ ('button.back') }}
+        </button>
+      </div>
     </div>
   </div>
 </template>

@@ -13,7 +13,7 @@ export interface Interview {
 }
 
 export default async function getInterview() {
-  const { response: interview, request } = useApi<Interview>(`https://ny.barplaybook.com/api/session?key=${api}&session=AdGTdPz59Aq796rL3ro0YyytY33w7pNI&i=docassemble.playground1:aaDataTypes.yml`)
+  const { response: interview, request } = useApi<Interview>(`https://ny.barplaybook.com/api/session?key=${api}&session=${props.id}&i=${props.filename}`)
 
   const loaded = ref(false)
 

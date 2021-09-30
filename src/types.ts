@@ -15,6 +15,10 @@ export interface Interview {
   id: string
   data_types: Data_Type[]
 }
+
+export interface SessionUrl {
+  url: string
+}
 export interface $Auth0Defaults {
   client: Auth0Client | null
   state: {
