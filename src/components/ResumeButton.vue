@@ -12,12 +12,12 @@
 import { ref, computed } from 'vue'
 const api = import.meta.env.VITE_DA_API_KEY
 
-export default {
+export default defineComponent({
   name: 'ResumeButton',
   props: {
     id: String,
   },
-  setup() {
+  setup(props) {
     const data = ref(null)
     const loading = ref(true)
     const error = ref(null)
@@ -32,7 +32,7 @@ export default {
           'content-type': 'application/json',
         },
         body: JSON.stringify ({
-          session: '1234',
+          session: `${props.id}`,
           i: 'docassemble.testServer:data/questions/aaDataTypes.yml',
         }),
       })
@@ -76,5 +76,5 @@ export default {
       error,
     }
   },
-}
+})
 </script>
