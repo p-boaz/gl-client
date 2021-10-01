@@ -36,6 +36,8 @@ export default defineComponent({
           i: 'docassemble.testServer:data/questions/aaDataTypes.yml',
         }),
       })
+        .then((res) => { console.log(res) })
+        .catch((res) => { console.log(res) })
         .then((res) => {
           // a non-200 response code
           if (!res.ok) {
