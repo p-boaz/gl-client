@@ -128,9 +128,9 @@ export default defineComponent({
       <div>
         <button
           class="btn m-3 text-sm mt-6"
-          @click="router.back()"
+          @click="$router.back()"
         >
-          {{ ('button.back') }}
+          Back
         </button>
       </div>
     </div>

@@ -203,62 +203,7 @@
         </li>
 
         <li class="px-4 cursor-pointer hover:bg-gray-700">
-          <div>
-            <a href="#" class="flex items-center py-2" @click="modalOpen = true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-              Add data
-              <teleport to="body">
-                <div v-if="modalOpen" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
-                  <div class="relative w-auto my-6 mx-auto max-w-6xl">
-                    <!--content-->
-                    <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                      <!--header-->
-                      <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-                        <h3 class="text-3xl font-semibold">
-                          Add a record of processing activity
-                        </h3>
-                        <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" @click="toggleModal()">
-                          <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-                            <ant-design:close-circle-filled />
-                          </span>
-                        </button>
-                      </div>
-                      <!--body-->
-                      <div class="relative p-6 flex-auto">
-                        <iframe
-                          :src="`https://ny.barplaybook.com/run/datatypes`"
-                          frameborder="0"
-                          height="600"
-                          width="700"
-                        >
-                        </iframe>
-                      </div>
-                      <!--footer-->
-                      <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-                        <button class="text-red-500 bg-transparent border border-solid border-red-500 hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" @click="toggleModal()">
-                          Close
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div v-if="modalOpen" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
-              </teleport>
-            </a>
-          </div>
+          <temp-url-button />
         </li>
 
         <li class="px-4 py-2 mt-2 text-xs font-bold tracking-wider text-gray-500 uppercase">
@@ -291,26 +236,6 @@
         <li class="px-4 py-2 mt-2 text-xs font-bold tracking-wider text-gray-500 uppercase">
           Pages
         </li>
-
-        <!-- <li class="px-4 cursor-pointer hover:bg-gray-700">
-          <router-link :to="{ name: 'login' }" class="flex items-center py-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-5 h-5 mr-2"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
-              />
-            </svg>
-            Login
-          </router-link>
-        </li> -->
       </ul>
     </nav>
   </aside>
@@ -320,12 +245,14 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
+import TempUrlButton from './TempUrlButton.vue'
 
 export default {
   components: {
     Disclosure,
     DisclosureButton,
     DisclosurePanel,
+    TempUrlButton,
   },
 
   setup() {
@@ -348,38 +275,5 @@ export default {
       isUserActive,
     }
   },
-  data() {
-    return {
-      modalOpen: false,
-    }
-  },
-  methods: {
-    toggleModal() {
-      this.modalOpen = !this.modalOpen
-    },
-  },
 }
 </script>
-
-<style>
-.modal {
-  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  background-color: rgba(0,0,0,.5);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  width: 300px;
-  height: 300px;
-  padding: 5px;
-}
-</style>
