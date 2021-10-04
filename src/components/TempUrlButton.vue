@@ -54,7 +54,7 @@ export default defineComponent({
       tempUrl: null,
     }
   },
-  async mounted() {
+  async created() {
     const { tempUrl } = await getTempUrl()
 
     return { tempUrl }
