@@ -42,9 +42,15 @@ export default defineComponent({
     </div>
 
     <div>
-      <p class="px-4 text-sm text-gray-500">
-        {{ interview.funnel }} Data
-      </p>
+      <ul class="list-disc mx-8">
+        <li
+          v-for="element in interview.data_types.elements"
+          :key="element"
+          class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+        >
+          {{ element.details.elements }}
+        </li>
+      </ul>
     </div>
 
     <div class="border-t border-gray-200">
@@ -69,7 +75,7 @@ export default defineComponent({
           <dt class="text-sm font-medium text-gray-500">
             Last Updated by
           </dt>
-          <dd v-for="value in interview.users.elements" :key="value" dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+          <dd v-for="value in interview.users.elements" :key="value" class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
             {{ value.name.last }}, {{ value.name.first }}
           </dd>
         </div>
@@ -78,15 +84,20 @@ export default defineComponent({
             Data Types
           </dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ interview.data_types }}
-          </dd>
-        </div>
-        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-          <dt class="text-sm font-medium text-gray-500">
-            Transfer Details
-          </dt>
-          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ interview.transfer_details }}
+            <ul class="list-disc mx-4">
+              <li
+                v-for="element in interview.data_types.elements"
+                :key="element"
+                class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+              >
+                <!-- {{ element.details.elements }} -->
+                <ul>
+                  <li v-for="key of element.details.elements" :key="key">
+                    {{ key.name }}
+                  </li>
+                </ul>
+              </li>
+            </ul>
           </dd>
         </div>
         <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -127,6 +138,14 @@ export default defineComponent({
                 </div>
               </li>
             </ul>
+          </dd>
+        </div>
+        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">
+            Recommendations
+          </dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+            {{ interview.transfer_details }}
           </dd>
         </div>
       </dl>

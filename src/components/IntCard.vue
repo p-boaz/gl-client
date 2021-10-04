@@ -21,13 +21,13 @@
             class="border border-gray-200 divide-y divide-gray-200 rounded-md"
           >
             <li
-              v-for="(value) in item.dict.data_types.elements"
-              :key="value"
+              v-for="element in item.dict.data_types.elements"
+              :key="element"
               class="flex items-center justify-between py-3 pl-3 pr-4 text-sm"
             >
-              <div class="flex items-center flex-1 w-0">
+              <div v-for="key of element.details.elements" :key="key" class="flex items-center flex-1 w-0">
                 <span class="flex-1 w-0 ml-2 truncate">
-                  {{ value }} Data
+                  {{ key.name }} Data
                 </span>
               </div>
               <div class="flex-shrink-0 ml-4">
