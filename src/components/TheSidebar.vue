@@ -202,10 +202,6 @@
           </a>
         </li>
 
-        <li class="px-4 cursor-pointer hover:bg-gray-700">
-          <temp-url-button />
-        </li>
-
         <li class="px-4 py-2 mt-2 text-xs font-bold tracking-wider text-gray-500 uppercase">
           UI Elements
         </li>
@@ -234,7 +230,7 @@
           </router-link>
         </li>
         <li class="px-4 py-2 mt-2 text-xs font-bold tracking-wider text-gray-500 uppercase">
-          Pages
+          <TempUrlButton />
         </li>
       </ul>
     </nav>

@@ -48,18 +48,21 @@ import getTempUrl from '~/modules/temp'
 
 export default defineComponent({
   name: 'TempUrlButton',
-  props: {
-    msg: String,
+  data() {
+    return {
+      modalOpen: false,
+      tempUrl: null,
+    }
   },
-  async setup() {
+  async mounted() {
     const { tempUrl } = await getTempUrl()
 
     return { tempUrl }
   },
-  data() {
-    return {
-      modalOpen: false,
-    }
+  methods: {
+    toggleModal() {
+      this.modalOpen = !this.modalOpen
+    },
   },
 })
 </script>
