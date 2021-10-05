@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts">
-import getTempUrl from '~/modules/temp'
+const api = import.meta.env.VITE_DA_API_KEY
 
 export default defineComponent({
   name: 'TempUrlButton',
@@ -55,9 +55,14 @@ export default defineComponent({
     }
   },
   async created() {
-    const { tempUrl } = await getTempUrl()
-
-    return { tempUrl }
+    // POST request using fetch with async/await
+    const requestOptions = {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    }
+    const response = await fetch(`https://ny.barplaybook.com/api/temp_url?key=${api}&url=https://ny.barplaybook.com/`, requestOptions)
+    const data = await response.json()
+    this.tempUrl = data
   },
   methods: {
     toggleModal() {

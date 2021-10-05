@@ -28,7 +28,13 @@ export default defineComponent({
 
     return { interview }
   },
-
+    methods: {
+        formatDate() {
+            const date = new Date();
+                // Then specify how you want your dates to be formatted
+            return new Intl.DateTimeFormat('default', { dateStyle: 'full', timeStyle: 'long' }).format(date);
+        }
+    }
 })
 </script>
 
@@ -40,27 +46,40 @@ export default defineComponent({
       </h3>
       <resume-button :id="id" />
     </div>
-
-    <div>
-      <ul class="list-disc mx-8">
-        <li
-          v-for="element in interview.data_types.elements"
-          :key="element"
-          class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
-        >
-          {{ element.details.elements }}
-        </li>
-      </ul>
-    </div>
+    <div class="px-4 py-5 sm:px-6">
+        <span>Processing</span>
+        <ul v-for="element in interview.data_types.elements"
+            :key="element"
+            class="list-disc mx-8">
+          <li 
+            v-for="(key) of element.details.elements" 
+            :key="key"
+            class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+          >
+            <p>
+              {{ key.name }} Data from {{ key.data_subjects }} for {{ key.purpose }}
+            </p>
+          </li>
+        </ul>
+      </div>
 
     <div class="border-t border-gray-200">
       <dl>
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
-            Last Accessed
+            Last updated
           </dt>
-          <dd v-for="value in interview._internal.accesstime" :key="value" class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ value }}
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+            <ul v-for="value in interview._internal.accesstime" :key="value" class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              <li>
+                {{ formatDate("value") }}
+              </li>
+            </ul>
+            <ul v-for="value in interview.users.elements" :key="value" class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              <li>
+                by {{ value.name.first }} {{ value.name.last }}
+              </li>
+            </ul>
           </dd>
         </div>
         <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -90,7 +109,7 @@ export default defineComponent({
                 :key="element"
                 class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
               >
-                <!-- {{ element.details.elements }} -->
+                {{ element.details.elements }}
                 <ul>
                   <li v-for="key of element.details.elements" :key="key">
                     {{ key.name }}
