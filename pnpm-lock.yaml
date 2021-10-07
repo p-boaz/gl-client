@@ -391,6 +391,12 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
 
+  /@babel/parser/7.15.8:
+    resolution: {integrity: sha512-BRYa3wcQnjS/nqI8Ac94pYYpJfojHVvVXJ97+IDCImX4Jc8W8Xv1+47enbruk+q1etOpsQNwnfFcNGw+gtPGxA==}
+    engines: {node: '>=6.0.0'}
+    hasBin: true
+    dev: true
+
   /@babel/template/7.15.4:
     resolution: {integrity: sha512-UgBAfEa1oGuYgDIPM2G+aHa4Nlo9Lh6mGD2bDBGMTbYnc38vulXPuC1MGjYILIEmlwl6Rd+BPR9ee3gm20CBtg==}
     engines: {node: '>=6.9.0'}
@@ -1408,7 +1414,7 @@ packages:
   /constantinople/4.0.1:
     resolution: {integrity: sha512-vCrqcSIq4//Gx74TXXCGnHpulY1dskqLTFGDmhrGxzeXL8lF8kvXv6mpNWlJj1uD4DW23D4ljAqbY4RRaaUZIw==}
     dependencies:
-      '@babel/parser': 7.15.7
+      '@babel/parser': 7.15.8
       '@babel/types': 7.15.6
     dev: true
 
@@ -5077,8 +5083,8 @@ packages:
     resolution: {integrity: sha512-jkjy6pjU1fxUvI51P+gCsxg1u2n8LSt0W6KrCNQceaziKzff74GoWmjVG46KieVzybO1sttPQmYfrwSHey7GUA==}
     dev: true
 
-  /vscode-vue-languageservice/0.27.29:
-    resolution: {integrity: sha512-fh8iyuK422fMaG2F3+p11WIh5E1apjEb0+/GyjeCl6fsIrui7wqvu5LM5DNQadnKNdTzjuekJ5TpdWfeoDzToQ==}
+  /vscode-vue-languageservice/0.27.30:
+    resolution: {integrity: sha512-nPnUNCMqqHfxcCPLyLWvmgbNCgos3SwvPcl/CzAnMbqcjLtNZppsdI7bKX3EEj0Jbg6SGLQ9NanIvZaMI1bsUA==}
     dependencies:
       '@volar/code-gen': 0.27.24
       '@volar/html2pug': 0.27.13
@@ -5161,7 +5167,7 @@ packages:
       typescript: '*'
     dependencies:
       typescript: 4.4.3
-      vscode-vue-languageservice: 0.27.29
+      vscode-vue-languageservice: 0.27.30
     dev: true
 
   /vue/3.2.19:
@@ -5273,7 +5279,7 @@ packages:
     resolution: {integrity: sha512-RNGKj82nUPg3g5ygxkQl0R937xLyho1J24ItRCBTr/m1YnZkzJy1hUiHUJrc/VlsDQzsCnInEGSg3bci0Lmd4w==}
     engines: {node: '>= 10.0.0'}
     dependencies:
-      '@babel/parser': 7.15.7
+      '@babel/parser': 7.15.8
       '@babel/types': 7.15.6
       assert-never: 1.2.1
       babel-walk: 3.0.0-canary-5
