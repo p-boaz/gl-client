@@ -2,7 +2,7 @@
   <aside class="hidden w-64 bg-gray-800 sm:block">
     <div class="py-3 mb-8 tracking-widest text-center bg-gray-900 border-b-2 border-gray-800">
       <router-link to="/" class="text-white">
-        Graphletter
+        <ph:pen-nib-thin class="inline-block" /> Graphletter
       </router-link>
     </div>
 

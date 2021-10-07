@@ -5,7 +5,7 @@
         <div class="flex items-center justify-between">
           <div class="flex items-center">
             <router-link to="/" class="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300">
-              Graphletter
+              <ph:pen-nib-thin class="inline-block" /> Graphletter
             </router-link>
 
             <!-- Search input on desktop screen -->

@@ -28,13 +28,17 @@ export default defineComponent({
 
     return { interview }
   },
-    methods: {
-        formatDate() {
-            const date = new Date();
-                // Then specify how you want your dates to be formatted
-            return new Intl.DateTimeFormat('default', { dateStyle: 'full', timeStyle: 'long' }).format(date);
-        }
-    }
+  // computed: {
+  //   lastUpdated() {
+  //     return {{ formatDate(interview._internal.modtime) }}
+  //   },
+  // },
+  methods: {
+    formatDate() {
+      const date = new Date()
+      return new Intl.DateTimeFormat('default', { dateStyle: 'full', timeStyle: 'long' }).format(date)
+    },
+  },
 })
 </script>
 
@@ -46,39 +50,36 @@ export default defineComponent({
       </h3>
       <resume-button :id="id" />
     </div>
-    <div class="px-4 py-5 sm:px-6">
-        <span>Processing</span>
-        <ul v-for="element in interview.data_types.elements"
-            :key="element"
-            class="list-disc mx-8">
-          <li 
-            v-for="(key) of element.details.elements" 
-            :key="key"
-            class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
-          >
-            <p>
-              {{ key.name }} Data from {{ key.data_subjects }} for {{ key.purpose }}
-            </p>
-          </li>
-        </ul>
-      </div>
 
-    <div class="border-t border-gray-200">
+    <div v-if="interview.data_types.elements" class="px-4 py-5 sm:px-6">
+      <span>Processing overview</span>
+      <ul
+        v-for="element in interview.data_types.elements"
+        :key="element"
+        class="list-disc mx-8"
+      >
+        <li
+          v-for="(key) of element.details.elements"
+          :key="key"
+          class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+        >
+          <p>
+            {{ key.name }} Data from {{ key.data_subjects }} for {{ key.purpose }}
+          </p>
+        </li>
+      </ul>
+    </div>
+
+    <div v-if="interview.users.elements" class="border-t border-gray-200">
       <dl>
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
             Last updated
           </dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            <ul v-for="value in interview._internal.accesstime" :key="value" class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              <li>
-                {{ formatDate("value") }}
-              </li>
-            </ul>
+            {{ formatDate(interview._internal.modtime) }}
             <ul v-for="value in interview.users.elements" :key="value" class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-              <li>
-                by {{ value.name.first }} {{ value.name.last }}
-              </li>
+              by {{ value.name.first }} {{ value.name.last }}
             </ul>
           </dd>
         </div>
@@ -98,7 +99,8 @@ export default defineComponent({
             {{ value.name.last }}, {{ value.name.first }}
           </dd>
         </div>
-        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+
+        <div v-if="interview.data_types.elements" class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
             Data Types
           </dt>
@@ -119,7 +121,8 @@ export default defineComponent({
             </ul>
           </dd>
         </div>
-        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+
+        <div v-if="interview.transfer_details" class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
             Transfer Details
           </dt>
@@ -159,7 +162,8 @@ export default defineComponent({
             </ul>
           </dd>
         </div>
-        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+
+        <div v-if="interview.transfer_details" class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
             Recommendations
           </dt>
