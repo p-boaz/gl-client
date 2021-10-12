@@ -113,7 +113,9 @@
                 </div>
               </div>
             </td>
-            <td>{{ key.privileges }}</td>
+            <td v-for="privilege in key.privileges" :key="privilege">
+              {{ privilege }}
+            </td>
             <td>
               <span v-if="key.isActive" class="px-2 py-1 text-xs text-white bg-green-500 rounded">Active</span>
               <span v-else class="px-2 py-1 text-xs text-white bg-green-500 rounded">Active</span>
@@ -318,8 +320,10 @@ export default defineComponent({
   async setup() {
     const { users } = await useUsers()
 
-    return { users }
-    selectAll
+    return {
+      users,
+      selectAll,
+    }
   },
 })
 </script>

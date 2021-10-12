@@ -70,7 +70,7 @@ export default defineComponent({
       </ul>
     </div>
 
-    <div v-if="interview.users.elements" class="border-t border-gray-200">
+    <div v-if="interview.users" class="border-t border-gray-200">
       <dl>
         <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
@@ -83,7 +83,7 @@ export default defineComponent({
             </ul>
           </dd>
         </div>
-        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <!-- <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
             Application for
           </dt>
@@ -98,7 +98,7 @@ export default defineComponent({
           <dd v-for="value in interview.users.elements" :key="value" class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
             {{ value.name.last }}, {{ value.name.first }}
           </dd>
-        </div>
+        </div> -->
 
         <div v-if="interview.data_types.elements" class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
